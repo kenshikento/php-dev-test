@@ -11,7 +11,7 @@ class AdsInjector implements AdsInjectorInterface
 
 	public function __construct()
 	{
-		$this->factory = new WidgetFactory;
+		$this->factory = WidgetFactory::getInstance();
 	}
 
     /**
@@ -31,13 +31,13 @@ class AdsInjector implements AdsInjectorInterface
 
 			$class = $this->factory->create($widget['layout']);
 			$points += $class->getPointsValue($widget);
-			
+
 			if ($points >= self::POINTS) {				
 				$points = 0; 
-				array_splice($article['widgets'], $key, 0, [['layout' => 'ad']]);				
+				array_splice($article['widgets'], $key + 1, 0, [['layout' => 'ad']]);				
 			}
 		}
-
+		
 		return $article;
 	}
 }
