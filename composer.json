@@ -6,7 +6,8 @@
             "email": "romulodelazzari@stylist.co.uk"
         }
     ],
-    "require": {},
+    "require": {
+    },
     "autoload": {
       "psr-4": {
         "BackendApp\\": "src/"

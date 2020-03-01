@@ -6,16 +6,18 @@ namespace BackendApp\Ads\Widgets;
 
 class WidgetFactory
 {
-	private static $instance;
+	/** Commenting this out as it doesn't follow oop prinicples when its using static function **/
 
-	public static function getInstance() : self
+	//private static $instance;
+
+	/*public static function getInstance() : self
 	{
 		if (empty(self::$instance)) {
-			 self::$instance = new self();
+			self::$instance = new self();
 		}
 
 		return self::$instance;
-	}
+	}*/
 
 	public function create(string $className) : WidgetInterface
 	{

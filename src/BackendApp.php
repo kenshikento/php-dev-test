@@ -23,10 +23,8 @@ class BackendApp
 	{
 		//go to my database of choice get an article
 		$article = $this->repository->getArticle(1);
-
 		//now the fun starts, injecting ads into this article
 		$article = $this->adsInjector->inject($article);
-
 		//this article should contain some ads widgets in it
 		header('Content-Type: application/json');
 		echo json_encode($article);
