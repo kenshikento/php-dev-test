@@ -12,7 +12,7 @@ class Paragraph implements WidgetInterface
 	public function getPointsValue(array $widget) : float
 	{
 		if ($widget['text']) {		
-	 		return strlen(strip_tags($widget['text'])) / 1000;
+	 		return strlen(html_entity_decode(strip_tags($widget['text']))) / 1000;
 		}
 		
 		return 0;

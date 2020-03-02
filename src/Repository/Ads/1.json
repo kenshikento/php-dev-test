@@ -1,0 +1,16 @@
+{
+  "ads": [
+    {
+      "id" : 1,
+      "layout": "ad"
+    },
+    {
+      "id" : 2,
+      "layout": "ad"
+    },
+    {
+      "id" : 3,
+      "layout": "ad"
+    }
+  ]
+}

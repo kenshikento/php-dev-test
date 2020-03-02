@@ -3,15 +3,17 @@
 namespace BackendApp\Ads;
 
 use BackendApp\Ads\Widgets\WidgetFactory;
+use BackendApp\Repository\AdRepositoryInterface;
 
 class AdsInjector implements AdsInjectorInterface
 {
 	const POINTS = 3.5;
 	private $factory;
 
-	public function __construct()
+	public function __construct(AdRepositoryInterface $ads)
 	{
 		$this->factory = WidgetFactory::getInstance();
+		$this->ads = $ads;
 	}
 
     /**
@@ -34,7 +36,7 @@ class AdsInjector implements AdsInjectorInterface
 
 			if ($points >= self::POINTS) {				
 				$points = 0; 
-				array_splice($article['widgets'], $key + 1, 0, [['layout' => 'ad']]);				
+				array_splice($article['widgets'], $key + 1, 0, [$this->ads->findById(1)]);				
 			}
 		}
 		
